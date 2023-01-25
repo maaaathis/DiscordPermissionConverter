@@ -1,0 +1,28 @@
+{
+    "name": "maaaathis/discordpermissionconverter",
+    "description": "Converts hex Discord permissions to human readable format.",
+    "keywords": ["discord", "permission"],
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Mathis"
+        }
+    ],
+    "type": "library",
+    "require": {
+		"php": ">=7.4"
+    },
+    "require-dev": {
+		"phpunit/phpunit": "9.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Maaaathis\\DiscordPermissionConverter\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Maaaathis\\DiscordPermissionConverter\\Tests\\": "tests/"
+        }
+    }	
+}
