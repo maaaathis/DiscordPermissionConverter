@@ -1,12 +1,12 @@
 <?php namespace Maaaathis\DiscordPermissionConverter;
 
 /**
-*  PermissionConverter
-*
-*  This class is used to convert a discord permission hash to a readable array.
-*
-*  @author Maaaathis
-*/
+ *  PermissionConverter
+ *
+ *  This class is used to convert a discord permission hash to a readable array.
+ *
+ *  @author Maaaathis
+ */
 class PermissionConverter {
 
     /**  @var array $permissions define all discord permissions */
@@ -53,16 +53,16 @@ class PermissionConverter {
         "USE_EMBEDDED_ACTIVITIES" => 0x8000000000,
         "MODERATE_MEMBERS" => 0x10000000000
     );
-    
+
     /**
-    * convertPermission
-    *
-    * Converts a discord permission hash to a readable array.
-    *
-    * @param int $hash The discord permission hash to convert
-    *
-    * @return array The converted readable permission array
-    */
+     * convertPermission
+     *
+     * Converts a discord permission hash to a readable array.
+     *
+     * @param int $hash The discord permission hash to convert
+     *
+     * @return array|false|string The converted readable permission array
+     */
     public function convertPermission($hash, $json = false) {
         if(!isset($hash) | $hash == "") {
             return "[]";
