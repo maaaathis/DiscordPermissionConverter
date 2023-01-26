@@ -1,6 +1,6 @@
 {
     "name": "maaaathis/discordpermissionconverter",
-    "description": "Converts hex Discord permissions to human readable format.",
+    "description": "Converts Discord permissions hash to a human readable format.",
     "keywords": ["discord", "permission"],
     "license": "Apache-2.0",
     "authors": [
