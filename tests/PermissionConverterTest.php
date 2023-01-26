@@ -47,4 +47,15 @@ class PermissionConverterTest extends TestCase {
   public function testAdminPermission() {
     $this->assertTrue(json_encode($this->PermissionConverter->convertPermission("8")) == '["ADMINISTRATOR"]');
   }
+
+  /**
+  * Just check for an empty hash
+  *
+  */
+  public function testEmptyRequest()
+  {
+	$var = new \Maaaathis\DiscordPermissionConverter\PermissionConverter;
+	$this->assertTrue($var->convertPermission("", true) == '[]');
+	unset($var);
+  }
 }
