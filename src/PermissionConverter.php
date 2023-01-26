@@ -63,18 +63,22 @@ class PermissionConverter {
     *
     * @return array The converted readable permission array
     */
-    public function convertPermission($hash) {
+    public function convertPermission($hash, $json = false) {
         if(!isset($hash) | $hash == "") {
             return "[]";
         }
         $permissionsOutput = [];
-        if (strlen($hash) > 1) {
+        if (strlen($hash) >= 1) {
             foreach($this->permissions as $permission => $value) {
                 if($hash & $value) {
                     $permissionsOutput[] = $permission;
                 }
             }
         }
-        return $permissionsOutput;
+        if($json) {
+            return json_encode($permissionsOutput);
+        } else {
+            return $permissionsOutput;
+        }
     }
 }
