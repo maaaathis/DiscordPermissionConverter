@@ -1,6 +1,8 @@
 <?php 
 namespace Maaaathis\DiscordPermissionConverter\Tests;
 
+use Maaaathis\DiscordPermissionConverter\PermissionConverter;
+
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -8,8 +10,13 @@ use PHPUnit\Framework\TestCase;
 *
 *  @author Mathis
 */
-class PermissionConverterTest extends TestCase
-{
+class PermissionConverterTest extends TestCase {
+
+  protected $PermissionConverter;
+
+  public function setUp(): void {
+    $this->PermissionConverter = new PermissionConverter();
+  }
 	
   /**
   * Just check if the PermissionConverter has no syntax error 
@@ -17,11 +24,8 @@ class PermissionConverterTest extends TestCase
   *  Checks for general syntax errors.
   *
   */
-  public function testIsThereAnySyntaxError()
-  {
-	$var = new \Maaaathis\DiscordPermissionConverter\PermissionConverter;
-	$this->assertTrue(is_object($var));
-	unset($var);
+  public function testIsThereAnySyntaxError() {
+    $this->assertTrue(is_object($this->PermissionConverter));
   }
   
   /**
@@ -30,11 +34,8 @@ class PermissionConverterTest extends TestCase
   * Checks a fix array of permissions.
   *
   */
-  public function basicTest1()
-  {
-	$var = new \Maaaathis\DiscordPermissionConverter\PermissionConverter;
-	$this->assertTrue(json_encode($var->convertPermission("1409084834386")) == '["KICK_MEMBERS","MANAGE_CHANNELS","ADD_REACTIONS","STREAM","EMBED_LINKS","CHANGE_NICKNAME","MANAGE_ROLES","CREATE_PUBLIC_THREADS","SEND_MESSAGES_IN_THREADS","MODERATE_MEMBERS"]');
-	unset($var);
+  public function testGeneralPermissionListJsonOutput() {
+    $this->assertTrue($this->PermissionConverter->convertPermission("1409084834386", true) == '["KICK_MEMBERS","MANAGE_CHANNELS","ADD_REACTIONS","STREAM","EMBED_LINKS","CHANGE_NICKNAME","MANAGE_ROLES","CREATE_PUBLIC_THREADS","SEND_MESSAGES_IN_THREADS","MODERATE_MEMBERS"]');
   }
 
   /**
@@ -43,10 +44,7 @@ class PermissionConverterTest extends TestCase
   * Checks a fix array of permissions.
   *
   */
-  public function adminTest()
-  {
-	$var = new \Maaaathis\DiscordPermissionConverter\PermissionConverter;
-	$this->assertTrue(json_encode($var->convertPermission("8")) == '["ADMINISTRATOR"]');
-	unset($var);
+  public function testAdminPermission() {
+    $this->assertTrue(json_encode($this->PermissionConverter->convertPermission("8")) == '["ADMINISTRATOR"]');
   }
 }
