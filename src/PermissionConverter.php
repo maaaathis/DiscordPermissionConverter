@@ -56,7 +56,8 @@ class PermissionConverter {
         "USE_SOUNDBOARD" => 0x40000000000,
         "USE_EXTERNAL_SOUNDS" => 0x200000000000,
         "SEND_VOICE_MESSAGES" => 0x400000000000,
-        "SEND_POLLS" => 0x2000000000000
+        "SEND_POLLS" => 0x2000000000000,
+        "USE_EXTERNAL_APPS" => 0x4000000000000
     );
 
     /**
